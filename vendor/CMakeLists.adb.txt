@@ -1,3 +1,4 @@
+if (FALSE)  # ======================== CUT ==========================
 protobuf_generate_cpp(ADB_APP_PROCESSES_PROTO_SRCS ADB_APP_PROCESSES_PROTO_HDRS
 	adb/proto/app_processes.proto)
 protobuf_generate_cpp(ADB_KEY_TYPE_PROTO_SRCS ADB_KEY_TYPE_PROTO_HDRS
@@ -86,6 +87,7 @@ target_include_directories(libadb_tls_connection_defaults PUBLIC
 	adb/tls/include
 	boringssl/include
 	libbase/include)
+endif()  # ======================== CUT ==========================
 
 add_library(liblog STATIC
 	logging/liblog/log_event_list.cpp
@@ -139,6 +141,7 @@ target_include_directories(libcutils PRIVATE
 target_include_directories(libcutils PUBLIC
 	core/libcutils/include libbase/include)
 
+if (FALSE)  # ======================== CUT ==========================
 add_library(libdiagnoseusb STATIC
 	core/diagnose_usb/diagnose_usb.cpp)
 target_include_directories(libdiagnoseusb PUBLIC
@@ -210,3 +213,4 @@ if(APPLE)
 		"-framework CoreFoundation"
 		"-framework IOKit")
 endif()
+endif()  # ======================== CUT ==========================

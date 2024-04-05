@@ -95,6 +95,7 @@ endif()
 target_include_directories(libsepol PUBLIC
 	selinux/libsepol/include)
 
+if (FALSE)  # ====================== CUT =========================
 set(fastboot_SOURCES
 	core/fastboot/bootimg_utils.cpp
 	core/fastboot/fastboot.cpp
@@ -138,3 +139,4 @@ if(APPLE)
 		"-framework CoreFoundation"
 		"-framework IOKit")
 endif()
+endif()  # ======================== CUT ==========================

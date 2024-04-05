@@ -46,10 +46,10 @@
 	shallow = true
 	path = vendor/native
 	url = https://android.googlesource.com/platform/frameworks/native
-[submodule "vendor/adb"]
-	shallow = true
-	path = vendor/adb
-	url = https://android.googlesource.com/platform/packages/modules/adb.git
+#[submodule "vendor/adb"]
+#	shallow = true
+#	path = vendor/adb
+#	url = https://android.googlesource.com/platform/packages/modules/adb.git
 [submodule "vendor/logging"]
 	shallow = true
 	path = vendor/logging

@@ -1,42 +1,43 @@
-# android-tools
+# android-image-tools
 
-Git repository to make it easier to package certain command line
+Git repository to make it easier to build certain command line
 utilities provided by [android-tools][android-tools].
 
 # Motivation
 
 [Many][void-linux] [Linux][arch-linux] [distributions][alpine-linux] have
-a package called android-tools which ships essential android command
-line tools like adb or fastboot. Sadly the upstream build system for
+a package called android-tools which ships convenient android command
+line tools like mkbootimg or simg2img. Sadly the upstream build system for
 those tools is rather complex and doesn't allow building the command
 line tools only.
 
 Linux Distribution therefore mostly ship their own build systems for
 building the command line utilities. This repository aims to make
-packaging of android command utilities easier by providing a simple
+building of android command utilities easier by providing a simple
 CMake based build system and a ready-to-use tarball which doesn't
 require cloning all of the required git repositories manually. Besides
 this makes it easy to collect all patches required to build standalone
 android command line utilities in a central place.
 
+This repository is a fork of [android-tools](https://github.com/nmeum/android-tools.git),
+which only focus on the command line utilites useful for manipulating various android images.
+
+This fork does not depend on libusb. It also does not build `adb` and `fastboot`.
+
 # Status
 
 Currently the following tools are supported:
 
-* adb
-* fastboot
-* mke2fs.android (required by fastboot)
-* simg2img, img2simg, append2simg
+* ~~adb~~
+* ~~fastboot~~
+* e2fsdroid, mke2fs.android, make_f2fs (required by fastboot)
+* simg2img, img2simg, append2simg, ext2simg
 * lpdump, lpmake, lpadd, lpflash, lpunpack
 * mkbootimg, unpack_bootimg, repack_bootimg, avbtool
 * mkdtboimg
 
-The build system itself works quite well and is already being used for
-the Alpine Linux [android-tools package][alpine-linux] which I maintain.
-
-I personally don't use any android-tools except adb and fastboot. Thus
-my motivation to add support for additional tools is rather low at the
-moment. However, patches adding support for new tools in a clean way are
+The build system is originally took from [android-tools](https://github.com/nmeum/android-tools.git),
+patches adding support for new tools in a clean way are
 welcome. Additionally, patches needed to make the software compile on
 other Linux distributions are welcome as well. Please create new patches
 using `git format-patch --no-numbered --no-signature …`.
@@ -45,7 +46,7 @@ using `git format-patch --no-numbered --no-signature …`.
 
 The following libraries are required by android-tools:
 
-1. [libusb][libusb]
+1. ~~[libusb][libusb]~~
 2. [PCRE][PCRE]
 3. [Google Test][gtest]
 4. [protobuf][protobuf]

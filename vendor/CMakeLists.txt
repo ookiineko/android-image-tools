@@ -43,7 +43,7 @@ add_compile_definitions(_FILE_OFFSET_BITS=64 _LARGEFILE64_SOURCE)
 
 set(android-vendored
 	avb
-	adb
+#	adb
 	base
 	core
 	extras
@@ -86,7 +86,7 @@ pkg_check_modules(libbrotlidec REQUIRED IMPORTED_TARGET libbrotlidec)
 pkg_check_modules(libbrotlienc REQUIRED IMPORTED_TARGET libbrotlienc)
 pkg_check_modules(liblz4 REQUIRED IMPORTED_TARGET liblz4)
 pkg_check_modules(libpcre2-8 REQUIRED IMPORTED_TARGET libpcre2-8)
-pkg_check_modules(libusb-1.0 REQUIRED IMPORTED_TARGET libusb-1.0)
+#pkg_check_modules(libusb-1.0 REQUIRED IMPORTED_TARGET libusb-1.0)
 pkg_check_modules(libzstd REQUIRED IMPORTED_TARGET libzstd)
 
 find_package(Protobuf CONFIG)
@@ -115,9 +115,9 @@ include(CMakeLists.avb.txt)
 # Targets which should be installed by `make install`.
 install(TARGETS
 	"${ANDROID_MKE2FS_NAME}"
-	adb
+#	adb
 	append2simg
-	fastboot
+#	fastboot
 	img2simg
 	lpadd
 	lpdump
@@ -137,8 +137,8 @@ if(NOT APPLE)
 endif()
 
 # Install common completion files.
-install(FILES adb/adb.bash RENAME adb DESTINATION "${COMPLETION_COMMON_DIR}")
-install(FILES core/fastboot/fastboot.bash RENAME fastboot DESTINATION "${COMPLETION_COMMON_DIR}")
+# install(FILES adb/adb.bash RENAME adb DESTINATION "${COMPLETION_COMMON_DIR}")
+# install(FILES core/fastboot/fastboot.bash RENAME fastboot DESTINATION "${COMPLETION_COMMON_DIR}")
 
 # Install license files.
 # Disabled for now, see https://github.com/nmeum/android-tools/issues/30#issuecomment-855365636
