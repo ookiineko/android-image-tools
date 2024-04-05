@@ -22,7 +22,7 @@ android command line utilities in a central place.
 This repository is a fork of [android-tools](https://github.com/nmeum/android-tools.git),
 which only focus on the command line utilites useful for manipulating various android images.
 
-This fork does not depend on libusb or Go compiler. It also does not build `adb` and `fastboot`.
+This fork does not depend on googletest (aka gtest) or Go compiler. It also does not build `adb` and `fastboot`.
 
 # Status
 
@@ -48,7 +48,7 @@ The following libraries are required by android-tools:
 
 1. ~~[libusb][libusb]~~
 2. [PCRE][PCRE]
-3. [Google Test][gtest]
+3. ~~[Google Test][gtest]~~ (Bundled)
 4. [protobuf][protobuf]
 5. [brotli][brotli]
 6. [zstd][zstd]

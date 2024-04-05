@@ -9,6 +9,7 @@ target_compile_definitions(libzip PRIVATE -DZLIB_CONST)
 target_include_directories(libzip PUBLIC
 	libziparchive/include
 	libziparchive/incfs_support/include
+	googletest/googletest/include
 	core/include
 	logging/liblog/include
 	libbase/include)

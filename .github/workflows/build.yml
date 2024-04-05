@@ -19,7 +19,7 @@ jobs:
           sudo apt-get update
           DEBIAN_FRONTEND=noninteractive sudo apt-get install -yq \
             ${{ matrix.pkgs }} cmake git libssl-dev libbrotli-dev \
-            libgtest-dev liblz4-dev libpcre2-dev libprotobuf-dev libunwind-dev \
+            liblz4-dev libpcre2-dev libprotobuf-dev libunwind-dev \
             libzstd-dev make pkg-config
       - name: checkout
         uses: actions/checkout@v4
@@ -95,7 +95,7 @@ jobs:
         if: startsWith(matrix.os, 'opensuse')
         run: |
           zypper -n ref
-          zypper -n in ${{ matrix.pkgs }} cmake git libopenssl-devel gtest pcre2-devel pkgconfig \
+          zypper -n in ${{ matrix.pkgs }} cmake git libopenssl-devel pcre2-devel pkgconfig \
             'pkgconfig(libbrotlicommon)' 'pkgconfig(liblz4)' \
             'pkgconfig(libunwind-generic)' \
             'pkgconfig(libzstd)' 'pkgconfig(protobuf)' ninja tar xz
@@ -104,7 +104,7 @@ jobs:
         if: startsWith(matrix.os, 'archlinux')
         run: |
           pacman -Syu --needed --noconfirm \
-            ${{ matrix.pkgs }} brotli cmake git openssl gtest libunwind \
+            ${{ matrix.pkgs }} brotli cmake git openssl libunwind \
             lz4 pcre2 pkgconfig protobuf zstd ninja
 
       - name: prep ubuntu
@@ -113,20 +113,20 @@ jobs:
           apt-get update
           DEBIAN_FRONTEND=noninteractive apt-get install -yq \
             ${{ matrix.pkgs }} cmake git libssl-dev libbrotli-dev \
-            libgtest-dev liblz4-dev libpcre2-dev libprotobuf-dev libunwind-dev \
+            liblz4-dev libpcre2-dev libprotobuf-dev libunwind-dev \
             libzstd-dev pkg-config protobuf-compiler ninja-build
 
       - name: prep alpine
         if: startsWith(matrix.os, 'alpine')
         run: |
-          apk add build-base pcre2-dev linux-headers gtest-dev samurai \
+          apk add build-base pcre2-dev linux-headers samurai \
           openssl-dev git perl cmake protobuf-dev brotli-dev zstd-dev lz4-dev
 
       - name: prep fedora
         if: startsWith(matrix.os, 'fedora')
         run: |
           dnf install -y ${{ matrix.pkgs }} cmake ninja-build perl git openssl-devel \
-          brotli-devel gtest-devel lz4-devel pcre2-devel protobuf-devel \
+          brotli-devel lz4-devel pcre2-devel protobuf-devel \
           libzstd-devel tar xz
 
       - name: wait for source
@@ -172,7 +172,7 @@ jobs:
           brew uninstall "openssl@1.1"
           rm /usr/local/bin/openssl
           rm -rf /usr/local/opt/openssl /usr/local/include/openssl
-          brew install --overwrite brotli cmake openssl googletest lz4 \
+          brew install --overwrite brotli cmake openssl lz4 \
           ninja pcre2 protobuf zstd
 
       - name: wait for source

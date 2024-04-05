@@ -66,3 +66,7 @@
 	shallow = true
 	path = vendor/libufdt
 	url = https://android.googlesource.com/platform/system/libufdt.git
+[submodule "vendor/googletest"]
+	shallow = true
+	path = vendor/googletest
+	url = https://github.com/google/googletest.git
