@@ -1,0 +1,23 @@
+From b9c88c85faa5c4ff66b738fe17ce4c3744991bb5 Mon Sep 17 00:00:00 2001
+From: Ookiineko <chiisaineko@protonmail.com>
+Date: Fri, 5 Apr 2024 19:14:21 +0900
+Subject: [PATCH] avoid redefining O_BINARY on Cygwin
+
+Signed-off-by: Ookiineko <chiisaineko@protonmail.com>
+---
+ partition_tools/lpmake.cc | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/partition_tools/lpmake.cc b/partition_tools/lpmake.cc
+index 16dfec5..81d6bb7 100644
+--- a/partition_tools/lpmake.cc
++++ b/partition_tools/lpmake.cc
+@@ -45,7 +45,7 @@ static constexpr int EX_OK = 0;
+ static constexpr int EX_USAGE = 1;
+ static constexpr int EX_SOFTWARE = 2;
+ static constexpr int EX_CANTCREAT = 3;
+-#else
++#elif !defined(__CYGWIN__)
+ static constexpr int O_BINARY = 0;
+ #endif
+ 
