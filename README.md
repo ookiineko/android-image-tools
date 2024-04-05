@@ -82,6 +82,11 @@ build and installed as follows:
 	$ make
 	$ make install
 
+To build a statically linked binary (optional), pass
+`-DPREFER_STATIC_LINKING=ON` to CMake.
+Note that you will need to install the static versions of the [depended](#dependencies)
+libraries, otherwise you may see a configure / link error to occur.
+
 # Generating tarballs
 
 New source tarballs can be created from the Git repository using:

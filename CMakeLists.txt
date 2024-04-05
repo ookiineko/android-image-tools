@@ -10,6 +10,12 @@ include(GNUInstallDirs)
 # files are changed in vendor projects those can be retained with this option.
 option(ANDROID_TOOLS_PATCH_VENDOR "Patch vendor projects using patches directory" ON)
 
+# Option to enable or disable building statically linked binaries.
+# If enabled, the build result will be a standalone binary which you can run
+# on any device with the same operating system and architecture.
+# This requires static version of the depended libraries to be installed at build-time.
+option(PREFER_STATIC_LINKING "Prefer static libraries when linking" OFF)
+
 # Install bash/zsh completion files.
 set(COMPLETION_COMMON_DIR "${CMAKE_INSTALL_FULL_DATADIR}/android-tools/completions")
 add_subdirectory(completions)
