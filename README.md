@@ -102,7 +102,7 @@ have been copied from Anatol's ruby script.
 [void-linux]: https://github.com/void-linux/void-packages/tree/master/srcpkgs/android-tools
 [arch-linux]: https://www.archlinux.org/packages/community/x86_64/android-tools/
 [alpine-linux]: https://pkgs.alpinelinux.org/package/edge/testing/x86_64/android-tools
-[release-page]: https://github.com/nmeum/android-tools/releases
+[release-page]: ../../releases
 [libusb]: http://libusb.info/
 [PCRE]: http://pcre.sourceforge.net/
 [gtest]: https://github.com/google/googletest
