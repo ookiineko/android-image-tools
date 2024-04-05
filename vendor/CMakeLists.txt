@@ -57,8 +57,8 @@ set(android-vendored
 	f2fs-tools
 	e2fsprogs
 	incremental_delivery
-	fmtlib
-	boringssl)
+	fmtlib)
+#	boringssl)
 
 # XXX: Consider using https://cmake.org/cmake/help/v3.0/module/ExternalProject.html
 if(ANDROID_TOOLS_PATCH_VENDOR AND EXISTS "${ANDROID_PATCH_DIR}/")
@@ -77,7 +77,7 @@ if(ANDROID_TOOLS_PATCH_VENDOR AND EXISTS "${ANDROID_PATCH_DIR}/")
 	endforeach(v)
 endif()
 
-add_subdirectory(boringssl EXCLUDE_FROM_ALL)
+#add_subdirectory(boringssl EXCLUDE_FROM_ALL)
 add_subdirectory(fmtlib EXCLUDE_FROM_ALL)
 
 find_package(PkgConfig REQUIRED)
@@ -91,6 +91,7 @@ pkg_check_modules(libzstd REQUIRED IMPORTED_TARGET libzstd)
 
 find_package(Protobuf CONFIG)
 find_package(Protobuf REQUIRED)
+find_package(OpenSSL COMPONENTS Crypto REQUIRED)
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
 

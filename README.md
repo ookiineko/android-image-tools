@@ -22,7 +22,7 @@ android command line utilities in a central place.
 This repository is a fork of [android-tools](https://github.com/nmeum/android-tools.git),
 which only focus on the command line utilites useful for manipulating various android images.
 
-This fork does not depend on libusb. It also does not build `adb` and `fastboot`.
+This fork does not depend on libusb or Go compiler. It also does not build `adb` and `fastboot`.
 
 # Status
 
@@ -53,6 +53,7 @@ The following libraries are required by android-tools:
 5. [brotli][brotli]
 6. [zstd][zstd]
 7. [lz4][lz4]
+8. [OpenSSL][openssl]
 
 Python 3 is optionally needed as a run-time dependency in order to use
 the `mkbootimg`, `unpack_bootimg`, and `repack_bootimg` scripts which
@@ -61,7 +62,7 @@ are all written in Python.
 Additionally the following software is required at compile-time:
 
 1. A C and C++ compiler (either [GCC][gcc] >= 10.X or [clang][clang])
-2. The [Go compiler][golang]
+2. ~~The [Go compiler][golang]~~
 3. [CMake][cmake]
 4. [Perl][perl]
 
@@ -117,3 +118,4 @@ have been copied from Anatol's ruby script.
 [zstd]: https://facebook.github.io/zstd/
 [lz4]: https://github.com/lz4/lz4
 [anatol.pomozov]: https://github.com/anatol
+[openssl]: https://www.openssl.org/

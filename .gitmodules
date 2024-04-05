@@ -18,10 +18,10 @@
 	shallow = true
 	path = vendor/e2fsprogs
 	url = https://android.googlesource.com/platform/external/e2fsprogs.git
-[submodule "boringssl"]
-	shallow = true
-	path = vendor/boringssl
-	url = https://boringssl.googlesource.com/boringssl.git
+#[submodule "boringssl"]
+#	shallow = true
+#	path = vendor/boringssl
+#	url = https://boringssl.googlesource.com/boringssl.git
 [submodule "vendor/mkbootimg"]
 	shallow = true
 	path = vendor/mkbootimg
