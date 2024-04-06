@@ -202,3 +202,48 @@ jobs:
           # /usr/local/bin/fastboot --version
           /usr/local/bin/make_f2fs -V
           /usr/local/bin/sload_f2fs -V
+
+  cygwin:
+    env:
+      CYGWIN_NOWINPATH: 1
+      CHERE_INVOKING: 1
+    runs-on: windows-latest
+    steps:
+      - name: prep cygwin
+        uses: cygwin/cygwin-install-action@master
+        with:
+          add-to-path: false
+          packages: >-
+            gcc-core gcc-g++ pkg-config cmake ninja zlib-devel
+            liblz4-devel libzstd-devel libbrotli-devel
+            libpcre2-devel libprotobuf-devel libssl-devel
+
+      - name: wait for source
+        uses: yogeshlonkar/wait-for-jobs@v0.2.1
+        with:
+          jobs: 'Upload the source'
+
+      - name: download source
+        uses: actions/download-artifact@v4
+        with:
+          name: package_source
+
+      - name: build & install
+        shell: C:\cygwin\bin\bash.exe -o igncr -eo pipefail -l '{0}'
+        run: |
+          tar -xf android-tools-*.tar.xz
+          cd android-tools-*/
+          mkdir build && cd build
+          cmake -DCMAKE_C_FLAGS="$CFLAGS" -DCMAKE_CXX_FLAGS="$CXXFLAGS" -DCMAKE_BUILD_TYPE=Release -GNinja ..
+          ninja --verbose
+          echo -e "\n### make install ###\n"
+          cmake --install . --prefix /usr/local
+          echo -e "\n### all done ###\n"
+
+      - name: build & install
+        shell: C:\cygwin\bin\bash.exe -o igncr -eo pipefail -l '{0}'
+        run: |
+          # /usr/local/bin/adb --version
+          # /usr/local/bin/fastboot --version
+          /usr/local/bin/make_f2fs -V
+          /usr/local/bin/sload_f2fs -V
