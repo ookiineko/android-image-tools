@@ -9,7 +9,7 @@ add_library(liblp STATIC
         core/fs_mgr/liblp/writer.cpp)
 
 target_link_libraries(liblp PRIVATE
-	libbase libext4 libsparse OpenSSL::Crypto z)
+	libbase libext4 libsparse OpenSSL::Crypto ZLIB::ZLIB)
 if (FALSE)  # ======================== CUT ==========================
 target_include_directories(liblp PRIVATE
 	boringssl/include)

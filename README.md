@@ -54,6 +54,7 @@ The following libraries are required by android-tools:
 6. [zstd][zstd]
 7. [lz4][lz4]
 8. [OpenSSL][openssl]
+9. [zlib][zlib]
 
 Python 3 is optionally needed as a run-time dependency in order to use
 the `mkbootimg`, `unpack_bootimg`, and `repack_bootimg` scripts which
@@ -124,3 +125,4 @@ have been copied from Anatol's ruby script.
 [lz4]: https://github.com/lz4/lz4
 [anatol.pomozov]: https://github.com/anatol
 [openssl]: https://www.openssl.org/
+[zlib]: https://www.zlib.net/
